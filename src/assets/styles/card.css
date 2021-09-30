@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'CardCharacters';
+  src: url('../fonts/CardCharacters.eot');
+  src: url('../fonts/CardCharacters.eot?#iefix') format('embedded-opentype'), 
+       url('../fonts/CardCharacters.woff') format('woff'),
+       url('../fonts/CardCharacters.ttf')  format('truetype'); 
+}
+
+.card {
+  font-family: 'CardCharacters';
+  width: 120px;
+  height: 180px;
+  border-radius: 10px;
+  position: relative;
+  border: 5px solid #eee;
+  box-shadow: 1px 1px 2px 1px #999;
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
+
+}
+
+.card .back:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  border-radius: 3px;
+  background: salmon;
+}
+
+.card .face {
+  align-items: stretch;
+  width: 100%;
+  padding: 10px;
+  background: ghostwhite;
+  border-radius: 3px;
+  cursor: grab;
+}
+
+.face > div {
+  position: absolute;
+}
+.face .card-value.top {
+  top: 10px;
+  left: 10px;
+}
+.face .card-value.bottom {
+  bottom: 10px;
+  right: 10px;
+  transform: rotate(180deg);
+}
+.face .large.suit {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+}
+
+.face.hearts, .face.diamonds  { color: #e74c3c; }
+.face.clubs, .face.spades     { color: #444; }
+.suit.hearts:before   { content: '{'; }
+.suit.diamonds:before { content: '['; }
+.suit.clubs:before    { content: ']'; }
+.suit.spades:before   { content: '}'; }
